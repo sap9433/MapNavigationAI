@@ -7,7 +7,6 @@ import {
 from 'react-redux';
 
 const Layer = (props) => {
-    console.log(props);
     return ( < div className = {
         styles.imgLayer
     } > {
