@@ -1,5 +1,5 @@
 {
-  "name": "Map Navigation",
+  "name": "MapNavigation",
   "version": "0.2.0",
   "description": "combination of redux, react-router and ES6+ support ",
   "repository": "git@github.com:lcjnil/react-redux-scaffold.git",
