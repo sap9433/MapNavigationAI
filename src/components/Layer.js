@@ -13,10 +13,10 @@ const Layer = (props) => {
     } > {
         props.shortestPath.map(function(eachrow, index) {
             return ( < div key={index}> {
-                eachrow.map(function(elem, k) {
+                eachrow.map(function(elem, keyVal) {
                     return (<div className = {
                         styles.pathUnit
-                    } key={k}>{elem}< /div>);
+                    } key={keyVal}>{elem}< /div>);
                 })
             } < /div>);
         })

@@ -1,3 +1,5 @@
+/*    eslint indent: 0 */
+
 import { createStore, applyMiddleware, compose } from 'redux';
 import { reduxReactRouter } from 'redux-router';
 import DevTools from './DevTools';
