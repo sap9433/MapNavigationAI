@@ -1,7 +1,7 @@
 /*    eslint indent: 0 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import { Layer, Astar } from '../components';
 import * as layerActionCreator from '../actions/LayerAction.js';
 
@@ -13,8 +13,8 @@ export default class IndexPage extends Component {
 
     constructor(properties) {
         super(properties);
-        this.canvasWidth = 1052;
-        this.canvasHeight = 580;
+        this.canvasWidth = 500;
+        this.canvasHeight = 290;
     }
 
     componentDidMount() {
@@ -29,8 +29,8 @@ export default class IndexPage extends Component {
     }
 
     render() {
-            return ( < div >
-                < Link to = "/todos" > other < /Link>
+            return ( < div style={{border: '1px solid green'}}>
+                {/* < Link to = "/todos" > other < /Link>*/}
                 < Astar / >
                 < Layer canvasWidth = {
                     this.canvasWidth
@@ -50,7 +50,8 @@ export default class IndexPage extends Component {
     height = {
         this.canvasHeight
     }
-    ref = "canvas" >
+    ref = "canvas" 
+    style={{border: '1px solid black'}}>
         < /canvas> < /div >
         < /div>
 );
@@ -66,15 +67,21 @@ arrayFromSvg() {
 
     for (let row = 0, count = -1; row < canvasWidth; row++) {
         imageToMat[row] = [];
+        let col = 0;
         // imageToMat[row][col] = 'rgba(' + imageData[++count] + ', ' + imageData[++count] + ', ' + imageData[++count] + ', ' + imageData[++count] + ')';
-        for (let col = 0; col < canvasHeight; col++) {
+        for (; col < canvasHeight; col++) {
             if (imageData[++count] + imageData[++count] + imageData[++count] + imageData[++count] > 0) {
-                imageToMat[row][col] = 1;
-            } else {
                 imageToMat[row][col] = 0;
+            } else {
+                imageToMat[row][col] = 1;
             }
         }
+        // padding to make it x * x matrix
+        for (; col < canvasWidth; col++) {
+            imageToMat[row][col] = 0;
+        }
     }
+
     this.props.consumeSvgArr(imageToMat);
 }
 }
